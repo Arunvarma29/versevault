@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 import { Card } from '../ui/card'
 import { cn } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'

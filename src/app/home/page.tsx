@@ -1,4 +1,4 @@
-
+"use client"
 import { Button } from '@/components/ui/button'
 import React, { Suspense } from 'react';
 import HeroSection from '@/components/home/startup-hero';
@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { BlogFooter } from '@/components/home/blogFooter';
 
 
-const Home = () => {
+const Home = async() => {
   return (
     <>
    <main>  
