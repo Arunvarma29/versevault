@@ -1,8 +1,8 @@
-import Navbar from "@/components/home/header/navbar";
+
 import { prisma } from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 
-const Layout = async ({ children }: { children: React.ReactNode }) => {
+const HomeLayout = async ({ children }: { children: React.ReactNode }) => {
  
   const user = await currentUser();
   if (!user) {
@@ -20,13 +20,13 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         imageUrl: user.imageUrl,
       },
     });
+    
   }
   return (
     <div>
-      <Navbar/>
       {children}
     </div>
   );
 };
 
-export default Layout;
+export default HomeLayout;
