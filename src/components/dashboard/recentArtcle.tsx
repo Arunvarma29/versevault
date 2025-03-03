@@ -12,7 +12,7 @@ import {
 } from "../ui/table";
 import Link from "next/link";
 import type { Prisma } from "@prisma/client";
-import { deleteArticle } from "@/app/actions/delete-article";
+import { deleteArticle } from "@/actions/delete-article";
  
 type RecentArticlesProps = {
   articles: Prisma.ArticlesGetPayload<{
@@ -67,7 +67,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({ articles }) => {
                   <TableCell>{new Date(article.createdAt).toDateString()}</TableCell>
                   <TableCell>
                     <div className="flex gap-2">
-                      <Link href={`/dashboard/articles/${article.id}/edit`}>
+                      <Link href={`/dashboard/article/${article.id}/edit`}>
                         <Button variant="ghost" size="sm">Edit</Button>
                       </Link>
                       <DeleteButton articleId={article.id} />

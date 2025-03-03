@@ -1,19 +1,15 @@
+import { BlogFooter } from "@/components/home/blogFooter";
+import HeroSection from "@/components/home/startup-hero";
+import { TopArticle } from "@/components/home/toparticle";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React, { Suspense } from "react";
 
-import { Button } from '@/components/ui/button'
-import React, { Suspense } from 'react';
-import HeroSection from '@/components/home/startup-hero';
-import { TopArticle } from '@/components/home/toparticle';
-import Link from 'next/link';
-import { BlogFooter } from '@/components/home/blogFooter';
-
-
-const Home = () => {
+const page = async () => {
   return (
-    <>
-   <main>  
-     <HeroSection/>
-     
-     <section className="relative py-16 md:py-24">
+    <main>
+      <HeroSection />
+      <section className="relative py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -41,11 +37,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <BlogFooter/>
-     
+      <BlogFooter />
     </main>
-    </>
-  )
-}
+  );
+};
 
-export default Home
+export default page;

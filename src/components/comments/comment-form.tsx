@@ -3,7 +3,7 @@ import React, { useActionState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { createComments } from "@/app/actions/create-comments";
+import { createComments } from "@/actions/create-comments";
 
 type CommentFormProps = {
     articleId:string

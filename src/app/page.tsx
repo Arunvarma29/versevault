@@ -5,7 +5,6 @@ import Navbar from '@/components/home/header/navbar'
 const page =() => {
   return (
     <>
-    <Navbar/>
     <Home/>
     </>
   )

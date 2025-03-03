@@ -4,8 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
- 
+
 import { prisma } from "@/lib/prisma";
+import Navbar from "@/components/home/header/navbar";
 
 
 const geistSans = Geist({
@@ -30,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const saveUserData =async () => {
-   const user=await currentUser();
+const saveUserData = async () => {
+    const user = await currentUser();
     if (!user) {
       return null;
     }
@@ -50,30 +51,30 @@ export default function RootLayout({
     }
   }
 
-    saveUserData();
-    console.log("Data is succussessfully stored");
-    
-    return (
-      <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-        <html lang="en" suppressHydrationWarning>
-          <body
+  saveUserData();
+  console.log("Data is succussessfully stored");
 
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          >
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange >
+  return (
+    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+      <html lang="en" suppressHydrationWarning>
+        <body
 
-              <div> {children}</div>
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange >
+                  <Navbar/>
+            <div> {children}</div>
 
-            </ThemeProvider>
-
-          </body>
-        </html>
-      </ClerkProvider>
-    );
-  }
+          </ThemeProvider>
+        
+        </body>
+      </html>
+    </ClerkProvider>
+  );
+}
 
 
